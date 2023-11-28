@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - HCI Quiz Pt.2</title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        .navbar-default {
+            border-color: rgb(43, 45, 49);
+            border-radius: 0px;
+        }
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+            background-color: rgb(58, 58, 58);
+            color: rgb(210, 210, 210);
+        }
+        .navbar-default .navbar-nav > li > a,
+        .navbar-default .navbar-brand {
+            color: rgb(200, 200, 200);
+        }
+        .no-link-navbar-brand {
+            cursor: default;
+            pointer-events: none;
+        }
+        h1,h2,h3,h4,h5.h6,p {
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(200, 200, 200);
+        }
+        .navbar-default .navbar-nav > li > a:hover {
+            background-color: rgb(45, 45, 45);
+            color: rgb(100, 100, 100); 
+        }
+        .navbar-default .navbar-brand:hover {
+            background-color: rgb(45, 45, 45);
+            color: rgb(100, 100, 100); 
+        }
+        .margin-100 {
+            margin-left: 100px;
+        }
+        .margin-120 {
+            margin-left: 120px;
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+        .main {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 50px;
+            word-break: break-all;
+        }
+
+        .row {
+            margin: 8px -16px;
+        }
+
+        .row,
+        .row > .column {
+            padding: 5px;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+            display: none; 
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .content {
+            background-color: white;
+            padding: 2px;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .button {
+            border: none;
+            outline: none;
+            padding: 5px;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #ddd;
+        }
+
+        .button.active {
+            background-color: #666;
+            color: white;
+        }
+    </style>
+    <script>
+                filterSelection("all")
+        function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("column");
+        if (c == "all") c = "";
+        
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+        }
+
+        
+        function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+            element.className += " " + arr2[i];
+            }
+        }
+        }
+
+        function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+        }
+
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("button");
+        for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function(){
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+        }
+    </script>
+</head>
+<body style="background-color: rgb(49, 51, 56);">
+    <nav class="navbar navbar-default" style="background-color: rgb(48, 48, 48);">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">HCI Quiz</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li class="active"><a href="project-gallery.html">Project Gallery</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="myBtnContainer">
+        <button class="button active" onclick="filterSelection('all')"> Show all</button>
+        <button class="button" onclick="filterSelection('inter')"> Interactive</button>
+      </div>
+      
+      
+      <div class="row">
+        <div class="column">
+          <div class="content">
+            <h4>HCI Portfolio Project-1</h4>
+            <p>This is my first HCI project, it is a portfolio.</p>
+            <a href="https://regis-tan.github.io/HCI-Assignment-1-L1CC/assignment.html"><button class="btn-primary">Project Link</button></a>
+          </div>
+        </div>
+        <div class="column inter">
+          <div class="content">
+            <h4>HCI Form Project-2</h4>
+            <p>This is my second HCI project, it is an interactive form.</p>
+            <a href="https://regis-tan.github.io/HCI-Assignment-2-L1CC/HCI-Assignment-2"><button class="btn-primary">Project Link</button></a>
+          </div>
+        </div>
+        <div class="column inter">
+            <div class="content">
+              <h4>HCI Portfolio Project-3</h4>
+              <p>This is my third HCI project, it is an interactive portfolio.</p>
+              <a href="https://regis-tan.github.io/HCI-Assignment-3-L1CC/assignment-css.html"><button class="btn-primary">Project Link</button></a>
+            </div>
+          </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h4>HCI Portfolio Project-4</h4>
+          <p>This is my fourth HCI project, it is a responsive portfolio.</p>
+          <a href="https://regis-tan.github.io/HCI-Assignment-4-L1CC/assignment.html"><button class="btn-primary">Project Link</button></a>
+        </div>
+      </div>
+      <div class="column inter">
+        <div class="content">
+          <h4>HCI Portfolio Project-5</h4>
+          <p>This is my fifth HCI project, it is a responsive and interactive portfolio.</p>
+          <a href="https://regis-tan.github.io/HCI-Assignment-5-L1CC/portfolio.html"><button class="btn-primary">Project Link</button></a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h4>HCI Jquery Project-6</h4>
+          <p>This is my sixth HCI project, it is a Jquery project.</p>
+          <a href="https://regis-tan.github.io/HCI-Assignment-6-L1CC/info.html"><button class="btn-primary">Project Link</button></a>
+        </div>
+      </div>
+  </div>
+</body>
+</html>
